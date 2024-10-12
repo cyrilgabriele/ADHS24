@@ -1,0 +1,11 @@
+{
+  "In.java": "r",
+  "Out.java": "r",
+  "public": "r",
+  "public/0-example.in": "r",
+  "public/2-large.out": "r",
+  "public/0-example.out": "r",
+  "public/1-small.out": "r",
+  "public/1-small.in": "r",
+  "public/2-large.in": "r"
+}
