@@ -21,9 +21,7 @@ class Main {
   }
 
   public static int minimumDistance(int n, int[] A) {
-    // TODO
-    System.out.println(n);
-    System.out.println(A);
+    
     
 
     for (int i = 0; i <= n; ++i) {
@@ -31,5 +29,38 @@ class Main {
     }
     
     return 0;
+  }
+
+  public static int [] mergeSort(int [] A, int l, int r) {
+    // here first sort the Array A
+    if (l < r) {
+      int m = l + r / 2; //check if this works 
+
+      mergeSort(A, l, m);
+      mergeSort(A, m+1, r);
+      merge(A, l, m, r);
+    }
+
+    return A;
+  }
+
+  public static int [] merge(int [] A, int l, int m, int r) {
+    int [] B = new int [r-l+1];
+    int i = l;
+    int j = m+1;
+    int k = 1;
+
+    while (i <= m && j <= r) {
+      if (A[i] < A[j]) {
+        B[k] = A[i];
+        i++;
+        k++;
+      } else {
+        B[k] = A[j];
+        j++;
+        k++;
+      }
+    } 
+    return A;
   }
 }
