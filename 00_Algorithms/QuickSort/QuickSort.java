@@ -1,6 +1,9 @@
+import java.util.*;
+
 public class QuickSort {
     public static void main(String[] args) {
-        int [] A = {5, 8, 2, 15, 20, 3, 5, 3, 55, 6}; 
+        // int [] A = {5, 8, 2, 15, 20, 3, 5, 3, 55, 6}; 
+        int [] A = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         int left = 0; 
         int right = A.length-1;
         int [] sortedA = quicksort(A, left, right);
@@ -21,9 +24,15 @@ public class QuickSort {
     }
 
     public static int partition(int [] A, int left, int right) {
+        Random rand = new Random();
         int i = left; 
+        System.out.println("i = " + i);
         int j = right - 1;
-        int pivot = A[right]; //right-most element of A is the pivot element 
+        System.out.println("j = " + j);
+        // thhe pivot selection should be randomized! 
+        int random = rand.nextInt(A.length - 1);
+        int pivot = A[random]; 
+        System.out.println("pivot = " + pivot);
         
         while(j>=i) {
             while(i < right && A[i] <= pivot) {
