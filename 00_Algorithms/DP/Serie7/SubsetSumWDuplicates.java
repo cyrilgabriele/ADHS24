@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class SubsetSumWDuplicates {
     
     public static void main(String[] args) {
@@ -68,13 +66,11 @@ public class SubsetSumWDuplicates {
         System.out.println("DP Table for t = " + t + ":");
         for (int i = 0; i < DP[t].length; i++) {
             for (int j = 0; j < DP[t][i].length; j++) {
-                // Print each element in the row
                 System.out.print(DP[t][i][j] + " ");
             }
-            // Move to the next row
             System.out.println();
         }
-        System.out.println(); // Extra line for spacing between tables
+        System.out.println();
     }
     
 }
