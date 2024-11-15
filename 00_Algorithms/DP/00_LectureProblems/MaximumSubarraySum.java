@@ -7,8 +7,16 @@ public class MaximumSubarraySum {
     }
 
     public static int maximumSubarraySum(int n, int [] A) {
-        int [] dp = int []
+        int [] dp = new int [n];
 
-        return 0; 
+        for(int i=0; i<=n-1; ++i) {
+            // BASE CASE:
+            if(i==0) {
+                dp[0] = A[0];
+            } else {
+                dp[i] = Math.max(A[i], dp[i-1]+A[i]);
+            }
+        }
+        return dp[n-1]; 
     }
 }
