@@ -1,0 +1,14 @@
+{
+  "In.java": "r",
+  "Out.java": "r",
+  "public": "r",
+  "public/1-small.in": "r",
+  "public/0-example.in": "r",
+  "public/1-small.out": "r",
+  "public/0-example.out": "r",
+  "public/custom.in": "e",
+  "public/2-medium.in": "r",
+  "public/2-medium.out": "r",
+  "public/3-large.in": "r",
+  "public/3-large.out": "r"
+}
