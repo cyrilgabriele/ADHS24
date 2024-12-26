@@ -14,6 +14,8 @@ public class MaximumSubarraySum {
             if(i==0) {
                 dp[0] = A[0];
             } else {
+                // 1. option: only take the current A[i] element of the array A 
+                // 2. option: accumulate the current A[i] element 
                 dp[i] = Math.max(A[i], dp[i-1]+A[i]);
             }
         }
