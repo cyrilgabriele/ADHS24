@@ -39,5 +39,6 @@ public class EditDistance {
         // S -olution
         return dp[n][m];
         // T -ime
+        // O(n*m) => this because for each table entry the time complexity is O(1)
     }
 }
