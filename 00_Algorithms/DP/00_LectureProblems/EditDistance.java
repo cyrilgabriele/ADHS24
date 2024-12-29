@@ -19,8 +19,8 @@ public class EditDistance {
         // M -eaning: min edit distance for A[0...i] and B[0...i]
         // I -initialization
         // BASE CASES
-        for(int i=0; i<=n; ++i) {dp[i][0] = 0;};
-        for(int j=0; j<=n; ++j) {dp[0][j] = 0;};
+        for(int i=0; i<=n; ++i) {dp[i][0] = i;};
+        for(int j=0; j<=n; ++j) {dp[0][j] = j;};
         // R -ecursion
         // if a = b => dp[i][j] = dp[i-1][j-1]
         // else
@@ -35,10 +35,19 @@ public class EditDistance {
                 }
             }
         } 
-
+        printTable(dp);
         // S -olution
         return dp[n][m];
         // T -ime
         // O(n*m) => this because for each table entry the time complexity is O(1)
+    }
+
+    public static void printTable(int[][] dp) {
+        for(int[] row : dp) {
+            for(int rowEntry : row) {
+                System.out.println(rowEntry);
+            }
+            System.out.println("");
+        }
     }
 }
