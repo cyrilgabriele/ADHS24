@@ -43,11 +43,11 @@ public class EditDistance {
     }
 
     public static void printTable(int[][] dp) {
-        for(int[] row : dp) {
-            for(int rowEntry : row) {
-                System.out.println(rowEntry);
+        for (int[] row : dp) {
+            for (int rowEntry : row) {
+                System.out.print(rowEntry + "\t"); 
             }
-            System.out.println("");
+            System.out.println(); 
         }
     }
 }
