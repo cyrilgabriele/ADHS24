@@ -24,7 +24,7 @@ public class EditDistance {
         // R -ecursion
         // if a = b => dp[i][j] = dp[i-1][j-1]
         // else
-        // dp[i][j] = 1 + Math.min(dp[i][j-1] //einfügen, dp[i-1][j] //löschen, dp[i-1][j-1])
+        // dp[i][j] = 1 + Math.min(dp[i][j-1] //einfügen, dp[i-1][j] //löschen, dp[i-1][j-1] // ersetzen)
         // O -rder => top-down approach aka tabulation
         for(int s=1; s<=n; s++){
             for(int t=1; t<=m; t++) {
