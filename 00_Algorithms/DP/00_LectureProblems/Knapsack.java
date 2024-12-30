@@ -19,6 +19,8 @@ public class Knapsack {
         for(int k=0;k<=n;k++){dp[k][0]=0;}; // weight limit is 0 => no element possible => no profit possible
         
         // recursion
+        // ATTENTION: since we initialize the "new" array dp 1-based we need to access the given arrays
+        // weight and profit with "...-1"!!! This because they are given and are 0-based 
         for(int i=1; i<=n; i++) {
             for(int j=1; j<=limit; j++) {
                 if(weight[i-1] > j) {
