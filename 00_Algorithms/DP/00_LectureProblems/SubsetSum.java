@@ -23,12 +23,8 @@ public class SubsetSum {
                     // DO NOT take element A[i-1] since it is greater than s_j
                     dp[i][j] = dp[i-1][j]; // if it was possible to build the subset sum already w/ the previous elements then 1 else 0 
                 } else {
-                    if (A[i-1] > j) {
-                        dp[i][j] = dp[i-1][j];
-                    } else {
-                        dp[i][j] = dp[i - 1][j] | dp[i - 1][j - A[i - 1]];
-                    }
-                    
+                    // take the element!
+                    dp[i][j] = dp[i - 1][j] | dp[i - 1][j - A[i - 1]];                    
                 }
             }
         }
