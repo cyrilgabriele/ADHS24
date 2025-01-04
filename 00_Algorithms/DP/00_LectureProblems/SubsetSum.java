@@ -34,6 +34,7 @@ public class SubsetSum {
         }
         printTable(dp);
         return dp[n][s] == 1;
+        // runtime complexity: O(s*n) => pseudopolynomial
     }
 
     public static boolean naiveSubsetSum(int n, int[] A, int s) {
