@@ -1,8 +1,11 @@
 public class UnionFind {
 
+    public int[] parent;
+    public int[] rank;
+
     public UnionFind(int n) {
-        parent = new int[n];
-        rank = new int[n];
+        int[] parent = new int[n];
+        int[] rank = new int[n];
 
         // initialization
         for(int i=0; i<n; i++) {
@@ -11,11 +14,11 @@ public class UnionFind {
         }
     }
 
-    public int find(int rep) {
-        if(rep != parent[rep]) {
-            parent[rep] = find(rep);
+    public int find(int elem1) {
+        if(elem1 != parent[elem1]) {
+            parent[elem1] = find(elem1);
         }
-        return parent[rep];      
+        return parent[elem1];      
     }
 
     public void union(int elem1, int elem2) {

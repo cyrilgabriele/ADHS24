@@ -28,42 +28,49 @@ class Main {
     // Uncomment this line if you want to read from a file
     // In.close();
     */
-    int [] A = {3,6,3,3,2,-8};
+    int [] A = {1,6,3,3,2,-8};
     int [] B = {1,7,5,-9};
     int k = 1;
 
-    int output = minChanges(1, 1, k, A, B);
+    int output = minChanges(6, 4, k, A, B);
     System.out.println(output);
 
   }
 
   public static int minChanges(int n, int m, int k, int[] A, int[] B) {
-    int [][] dpTable = new int [B.length] [A.length]; 
-    
-    int minValuePreviousRow = 2147483645;
-    for (int i=0; i <= B.length-1; ++i) { 
-      for (int j=0; j <= A.length-1; ++j) {
-        // BASE CASE 1: (?)
-        if(i == 0) {
-          dpTable [i][j] = needChange(A[j], B[i], k);
-        }
-        // BASE CASE 2: (?)
-        if (i > j) {
-          dpTable [i][j] = 2147483646; 
-        }
-        if (i!=0 && j!=0 && dpTable[i-1][j-1] != 2147483646) {
-          //dpTable[i][j] = needChange(A[j], B[i], k) + dpTable[i-1][j-1];
-          dpTable[i][j] = needChange(A[j], B[i], k) + minValuePreviousRow;   
-        }
-        if(dpTable[i][j] < minValuePreviousRow) {
-          minValuePreviousRow = dpTable[i][j];
-          System.out.println("minValue: " +minValuePreviousRow);
+    // Initialize DP table with a large value for comparisons (infinity-like value)
+    int[][] dp = new int[n + 1][m + 1];
+    for (int i = 0; i <= n; i++) {
+      for (int j = 0; j <= m; j++) {
+        dp[i][j] = Integer.MAX_VALUE - 1; // Use a large number to represent "infinity"
+      }
+    }
+
+    // Base case
+    dp[0][0] = 0; // No elements, no changes required
+
+    // Fill DP table
+    for (int i = 1; i <= n; i++) {
+      dp[i][0] = 0; // Any prefix of A can match an empty B with 0 changes
+      for (int j = 1; j <= m; j++) {
+        // Option 1: Skip the current element of A
+        dp[i][j] = dp[i - 1][j];
+
+        // Option 2: Use A[i-1] to match B[j-1] (1-indexed conversion)
+        if (Math.abs(A[i - 1] - B[j - 1]) <= k) {
+          // No change needed if within range
+          dp[i][j] = Math.min(dp[i][j], dp[i - 1][j - 1]);
+        } else {
+          // Change is needed
+          dp[i][j] = Math.min(dp[i][j], dp[i - 1][j - 1] + 1);
         }
       }
-      minValuePreviousRow = 0;
     }
-    printMatrix(dpTable, A, B);
-    return getMinElement(dpTable, B.length-1, A.length-1);
+
+    // The answer is the minimum changes needed to match the entire B in A
+    printMatrix(dp, n, m);
+    System.out.println("solution extraction: " + dp[n][m]);
+    return dp[n][m];
   }
 
   public static int needChange(int elementA, int elementB, int k) {
@@ -80,9 +87,11 @@ class Main {
     return minValueLastRow;
   } 
 
-  public static void printMatrix(int [][] dpTable, int [] A, int [] B) {
-    for (int i=0; i <= B.length-1; ++i) {
-      for (int j=0; j <= A.length-1; ++j) {
+  public static void printMatrix(int [][] dpTable, int n, int m) {
+    System.out.println("n: " + n);
+    System.out.println("m: " + m);
+    for (int i=0; i <= n; ++i) {
+      for (int j=0; j <= m; ++j) {
         System.out.println(dpTable[i][j]);
       }
     }

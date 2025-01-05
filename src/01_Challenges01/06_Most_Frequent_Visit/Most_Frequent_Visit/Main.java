@@ -3,8 +3,8 @@
 class Main {
   public static void main(String[] args) {
     // Uncomment the following two lines if you want to read from a file
-    // In.open("public/example.in");
-    // Out.compareTo("public/example.out");
+    In.open("public/example.in");
+    Out.compareTo("public/example.out");
 
     int testNum = In.readInt(); // number of tests
     for (int test = 0; test < testNum; test++) {
@@ -17,12 +17,18 @@ class Main {
       }
       Out.println(mostFrequent(m, n, A));
     }
-  }
     // Uncomment this line if you want to read from a file
-    // In.close();
-
-  public static int mostFrequent(int m, int n, int[][] A) {
+    In.close();
+  }
     
+  public static int mostFrequent(int m, int n, int[][] A) {
+    for(int i=0; i<A[0].length; ++i){
+      for(int j=0; j<A[1].length; ++j) {
+        System.out.println(A[i][j]);
+      }
+    }
     return 0;
   }
+
+  
 }
