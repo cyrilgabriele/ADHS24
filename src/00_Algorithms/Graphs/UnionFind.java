@@ -4,8 +4,8 @@ public class UnionFind {
     public int[] rank;
 
     public UnionFind(int n) {
-        int[] parent = new int[n];
-        int[] rank = new int[n];
+        parent = new int[n];
+        rank = new int[n];
 
         // initialization
         for(int i=0; i<n; i++) {
