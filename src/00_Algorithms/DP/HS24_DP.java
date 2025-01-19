@@ -27,8 +27,8 @@ public class HS24_DP {
         }
 
         // RECURSION
-        for (int j=2; j<n; j++) {
-            for (int i=1; i<j; i++) {
+        for (int i=1; i<n; i++) {
+            for (int j=i+1; j<n; j++) {
                 for (int k=0; k<i; k++) {
                     if (A[k] + A[i] == A[j]) {
                         dp[i][j] = Math.max(dp[i][j], dp[k][i] + 1); 
